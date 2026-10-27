@@ -8,11 +8,13 @@
 <meta name="theme-color" content="#FFC400">
 <meta name="robots" content="noindex,nofollow">
 <link rel="icon" type="image/svg+xml" href="icon.svg">
-<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="apple-touch-icon" sizes="180x180" href="tl-icon-180.png">
+<link rel="apple-touch-icon" sizes="1024x1024" href="tl-icon-1024.png">
 <link rel="manifest" href="manifest.webmanifest">
 <script>
 var APP="https://claude.ai/artifact/5kQzXhQkaG1X1Ew2DPz1H2";
-if(/[?&]go=1\b/.test(location.search)){location.replace(APP)}
+var STANDALONE=window.navigator.standalone===true||(window.matchMedia&&matchMedia("(display-mode: standalone)").matches);
+if(!STANDALONE&&/[?&]go=1\b/.test(location.search)){location.replace(APP)}
 else{try{history.replaceState(null,"","?go=1")}catch(e){}}
 </script>
 <style>
@@ -31,9 +33,11 @@ li{margin:4px 0}
 </head>
 <body>
 <main>
-<img src="icon-180.png" alt="">
+<img src="tl-icon-512.png" alt="">
 <h1>טריפליסטה</h1>
 <p>הכנות, אריזה, קניות, טיסות והוצאות לכל נסיעה.</p>
+<p id="wa" hidden style="color:#A64B05">האייקון נפתח במצב "יישום אינטרנט", שאינו מחובר ל-Claude. מחק אותו מהמסך, פתח את הכתובת שוב ב-Safari והוסף למסך הבית כשהמתג "פתח כיישום אינטרנט" כבוי.</p>
+<script>if(STANDALONE)document.getElementById("wa").hidden=false</script>
 <a class="btn" href="https://claude.ai/artifact/5kQzXhQkaG1X1Ew2DPz1H2">פתח את טריפליסטה</a>
 <ol>
 <li>באייפון, ב-Safari: לחץ על כפתור השיתוף.</li>
